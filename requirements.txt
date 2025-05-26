@@ -1,0 +1,9 @@
+streamlit
+pandas
+matplotlib.pyplot
+seaborn
+altair
+numpy
+plotly.express
+sklearn.linear_model
+sklearn.cluster
