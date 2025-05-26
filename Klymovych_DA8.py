@@ -18,12 +18,19 @@ def load_data():
 # Функція обробки
 def preprocess_data(df):
     df = df.copy()
-    df['Invoice Date'] = pd.to_datetime(df['Invoice Date'], errors='coerce')
-    df.dropna(subset=['Invoice Date'], inplace=True)
-    df['Year'] = df['Invoice Date'].dt.year
+    if 'Date' in df.columns:
+        df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
+        df.dropna(subset=['Date'], inplace=True)
+        df['Year'] = df['Date'].dt.year
+        df['Invoice Date'] = df['Date']  # для сумісності
+    else:
+        st.error("Стовпець 'Date' не знайдено в даних!")
+        return pd.DataFrame()
+
     df = df[df['Customer Age'] > 0]
     df = df[df['Revenue'] >= 0]
     return df
+
 
 # Інтерфейс
 def main():
