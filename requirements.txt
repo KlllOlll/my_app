@@ -1,9 +1,8 @@
 streamlit
 pandas
-matplotlib.pyplot
+matplotlib
 seaborn
 altair
 numpy
-plotly.express
-sklearn.linear_model
-sklearn.cluster
+plotly
+scikit-learn
